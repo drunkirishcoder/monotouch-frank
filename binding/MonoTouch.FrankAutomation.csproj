@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9CD244FB-F82B-42FD-8448-97BF0FF4BAAA}</ProjectGuid>
+    <ProjectTypeGuids>{F5B4F3BC-B597-4E2B-B552-EF5D8A32436F};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>MonoTouch.FrankAutomation</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>MonoTouch.FrankAutomation</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="monotouch" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingApiDefinition Include="ApiDefinition.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingCoreSource Include="StructsAndEnums.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Xamarin.ObjcBinding.CSharp.targets" />
+  <ItemGroup>
+    <ObjcBindingNativeLibrary Include="libCocoaAsyncSocket.a" />
+    <ObjcBindingNativeLibrary Include="libCocoaHTTPServer.a" />
+    <ObjcBindingNativeLibrary Include="libCocoaLumberjack.a" />
+    <ObjcBindingNativeLibrary Include="libFrank.a" />
+    <ObjcBindingNativeLibrary Include="libShelley.a" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="libCocoaAsyncSocket.linkwith.cs">
+      <DependentUpon>libCocoaAsyncSocket.a</DependentUpon>
+    </Compile>
+    <Compile Include="libCocoaHTTPServer.linkwith.cs">
+      <DependentUpon>libCocoaHTTPServer.a</DependentUpon>
+    </Compile>
+    <Compile Include="libCocoaLumberjack.linkwith.cs">
+      <DependentUpon>libCocoaLumberjack.a</DependentUpon>
+    </Compile>
+    <Compile Include="libFrank.linkwith.cs">
+      <DependentUpon>libFrank.a</DependentUpon>
+    </Compile>
+    <Compile Include="libShelley.linkwith.cs">
+      <DependentUpon>libShelley.a</DependentUpon>
+    </Compile>
+    <Compile Include="Extras.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="frank_static_resources.bundle\images\loader.png" />
+    <BundleResource Include="frank_static_resources.bundle\ViewAttributeMapping.plist" />
+    <BundleResource Include="frank_static_resources.bundle\ViewAttributeMappingMac.plist" />
+    <BundleResource Include="frank_static_resources.bundle\images\ajax-loader.gif" />
+    <BundleResource Include="frank_static_resources.bundle\images\file.gif" />
+    <BundleResource Include="frank_static_resources.bundle\images\folder.gif" />
+    <BundleResource Include="frank_static_resources.bundle\images\folder-closed.gif" />
+    <BundleResource Include="frank_static_resources.bundle\images\loader.gif" />
+    <BundleResource Include="frank_static_resources.bundle\images\minus.gif" />
+    <BundleResource Include="frank_static_resources.bundle\images\plus.gif" />
+    <BundleResource Include="frank_static_resources.bundle\images\treeview-black.gif" />
+    <BundleResource Include="frank_static_resources.bundle\images\treeview-black-line.gif" />
+    <BundleResource Include="frank_static_resources.bundle\images\treeview-default.gif" />
+    <BundleResource Include="frank_static_resources.bundle\images\treeview-default-line.gif" />
+    <BundleResource Include="frank_static_resources.bundle\images\treeview-famfamfam.gif" />
+    <BundleResource Include="frank_static_resources.bundle\images\treeview-famfamfam-line.gif" />
+    <BundleResource Include="frank_static_resources.bundle\images\treeview-gray.gif" />
+    <BundleResource Include="frank_static_resources.bundle\images\treeview-gray-line.gif" />
+    <BundleResource Include="frank_static_resources.bundle\images\treeview-red.gif" />
+    <BundleResource Include="frank_static_resources.bundle\images\treeview-red-line.gif" />
+    <BundleResource Include="frank_static_resources.bundle\js\lib\backbone.js" />
+    <BundleResource Include="frank_static_resources.bundle\js\lib\coffee-script.js" />
+    <BundleResource Include="frank_static_resources.bundle\js\lib\jquery.min.js" />
+    <BundleResource Include="frank_static_resources.bundle\js\lib\jquery.treeview.js" />
+    <BundleResource Include="frank_static_resources.bundle\js\lib\jquery-ui.min.js" />
+    <BundleResource Include="frank_static_resources.bundle\js\lib\json2.js" />
+    <BundleResource Include="frank_static_resources.bundle\js\lib\raphael.js" />
+    <BundleResource Include="frank_static_resources.bundle\js\lib\require.js" />
+    <BundleResource Include="frank_static_resources.bundle\js\lib\underscore.js" />
+    <BundleResource Include="frank_static_resources.bundle\js\accessible_views_view.coffee" />
+    <BundleResource Include="frank_static_resources.bundle\js\accessible_views_view.js" />
+    <BundleResource Include="frank_static_resources.bundle\js\controller.coffee" />
+    <BundleResource Include="frank_static_resources.bundle\js\controller.js" />
+    <BundleResource Include="frank_static_resources.bundle\js\details_view.coffee" />
+    <BundleResource Include="frank_static_resources.bundle\js\details_view.js" />
+    <BundleResource Include="frank_static_resources.bundle\js\dropdown_control.coffee" />
+    <BundleResource Include="frank_static_resources.bundle\js\dropdown_control.js" />
+    <BundleResource Include="frank_static_resources.bundle\js\ersatz_model.coffee" />
+    <BundleResource Include="frank_static_resources.bundle\js\ersatz_model.js" />
+    <BundleResource Include="frank_static_resources.bundle\js\ersatz_view.coffee" />
+    <BundleResource Include="frank_static_resources.bundle\js\ersatz_view.js" />
+    <BundleResource Include="frank_static_resources.bundle\js\experiment_bar_model.coffee" />
+    <BundleResource Include="frank_static_resources.bundle\js\experiment_bar_model.js" />
+    <BundleResource Include="frank_static_resources.bundle\js\experiment_bar_view.coffee" />
+    <BundleResource Include="frank_static_resources.bundle\js\experiment_bar_view.js" />
+    <BundleResource Include="frank_static_resources.bundle\js\frank.coffee" />
+    <BundleResource Include="frank_static_resources.bundle\js\frank.js" />
+    <BundleResource Include="frank_static_resources.bundle\js\main.coffee" />
+    <BundleResource Include="frank_static_resources.bundle\js\main.js" />
+    <BundleResource Include="frank_static_resources.bundle\js\tabs_controller.coffee" />
+    <BundleResource Include="frank_static_resources.bundle\js\tabs_controller.js" />
+    <BundleResource Include="frank_static_resources.bundle\js\toast_controller.coffee" />
+    <BundleResource Include="frank_static_resources.bundle\js\toast_controller.js" />
+    <BundleResource Include="frank_static_resources.bundle\js\transform_stack.coffee" />
+    <BundleResource Include="frank_static_resources.bundle\js\transform_stack.js" />
+    <BundleResource Include="frank_static_resources.bundle\js\tree_view.coffee" />
+    <BundleResource Include="frank_static_resources.bundle\js\tree_view.js" />
+    <BundleResource Include="frank_static_resources.bundle\js\view_hier_model.coffee" />
+    <BundleResource Include="frank_static_resources.bundle\js\view_hier_model.js" />
+    <BundleResource Include="frank_static_resources.bundle\js\view_model.coffee" />
+    <BundleResource Include="frank_static_resources.bundle\js\view_model.js" />
+    <BundleResource Include="frank_static_resources.bundle\pictos\index.html" />
+    <BundleResource Include="frank_static_resources.bundle\pictos\pictos.css" />
+    <BundleResource Include="frank_static_resources.bundle\pictos\pictos_base64.css" />
+    <BundleResource Include="frank_static_resources.bundle\pictos\pictos-web.eot" />
+    <BundleResource Include="frank_static_resources.bundle\pictos\pictos-web.svg" />
+    <BundleResource Include="frank_static_resources.bundle\pictos\pictos-web.ttf" />
+    <BundleResource Include="frank_static_resources.bundle\pictos\pictos-web.woff" />
+    <BundleResource Include="frank_static_resources.bundle\stylesheets\css\symbiote.css" />
+    <BundleResource Include="frank_static_resources.bundle\stylesheets\sass\_elements.scss" />
+    <BundleResource Include="frank_static_resources.bundle\stylesheets\sass\_header.scss" />
+    <BundleResource Include="frank_static_resources.bundle\stylesheets\sass\_inspect_tabs_list_tabs.scss" />
+    <BundleResource Include="frank_static_resources.bundle\stylesheets\sass\_jquery.treeview.scss" />
+    <BundleResource Include="frank_static_resources.bundle\stylesheets\sass\_jqui.scss" />
+    <BundleResource Include="frank_static_resources.bundle\stylesheets\sass\_layout.scss" />
+    <BundleResource Include="frank_static_resources.bundle\stylesheets\sass\_mixins.sass" />
+    <BundleResource Include="frank_static_resources.bundle\stylesheets\sass\_reset.scss" />
+    <BundleResource Include="frank_static_resources.bundle\stylesheets\sass\_selector_test_toolbar.scss" />
+    <BundleResource Include="frank_static_resources.bundle\stylesheets\sass\_solarized.scss" />
+    <BundleResource Include="frank_static_resources.bundle\stylesheets\sass\_typography.scss" />
+    <BundleResource Include="frank_static_resources.bundle\stylesheets\sass\_unicode.scss" />
+    <BundleResource Include="frank_static_resources.bundle\stylesheets\sass\_z_index.scss" />
+    <BundleResource Include="frank_static_resources.bundle\stylesheets\sass\symbiote.scss" />
+    <BundleResource Include="frank_static_resources.bundle\index.html" />
+    <BundleResource Include="frank_static_resources.bundle\index.html.haml" />
+  </ItemGroup>
+</Project>
